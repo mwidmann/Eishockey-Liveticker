@@ -30,4 +30,4 @@ Folgende Features fehlen noch im Ticker:
 Installation
 ------------
 
-Bitte die [INSTALL.txt][INSTALL.txt] konsultieren. 
+Bitte die [INSTALL.txt](INSTALL.txt) konsultieren. 
