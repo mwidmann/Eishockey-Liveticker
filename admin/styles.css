@@ -1,0 +1,39 @@
+body {
+    font-family: Verdana, Arial, Helvetica;
+    font-size: 12px;
+    font-weight: normal;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.error {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+h1 {
+    width: 100%;
+    border-top: 1px dotted black;
+    border-bottom: 1px dotted black;
+}
+
+div.msg {
+    width: 100%;
+    text-align: center;
+    color: #009900;
+    font-size: 110%;
+}
+
+hr {
+    height: 1px;
+    width: 100%;
+    border: 0;
+    border-top: 1px dotted black;
+}
+td {
+    font-family: Verdana, Arial, Helvetica;
+    font-size: 12px;
+    font-weight: normal;
+    background-color: #ffffff;
+    color: #000000;
+}

@@ -1,0 +1,43 @@
+Installation of the liveticker
+
+For update instructions see UPDATE.txt
+
+Database:
+create a new database or use an existing one and run the contents of sql/create.sql
+against it. You may want to create a separate user to access this table. This
+user needs select, update, delete and insert rights.
+
+Application:
+-create a new folder called liveticker (or whatever you like it to be) in your 
+ htdocs folder.
+-copy the contents of this folder with all subfolders and files to the new 
+ destination.
+-change access permissions to the folder tickerdata to be world writeable
+ (e.g. chmod -R a+w /home/www/liveticker/tickerdata)
+-edit the file config.php to match your environment
+-have fun.
+
+Tested environment:
+this application has been written on an Apple computer.
+The software versions this liveticker works on are:
+Apache Webserver 2
+PHP 5.1.6
+MySQL 5.0.19
+Versions above shouldn't be a problem. 
+
+-------------------------------------------------------------------------------
+PROBLEMS?
+-------------------------------------------------------------------------------
+
+In 99.9% of the cases if the output of the ticker doesn't work after installation
+the error is that the FRAGMENTDIR and OUTPUTDIR constants defined in config.php 
+don't contain the correct ABSOLUTE path to the folders. The easiest way to find out
+what the absolute path to the liveticker folder is is to create a small php script
+with the following content:
+
+<?php
+    echo dirname( __FILE__ );
+?>
+
+This script, when called in the browser, displays the full path to itself which
+should be easily adaptable to your needs.

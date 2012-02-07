@@ -1,0 +1,22 @@
+table, td {
+	width: auto;
+}
+table.statistics, div.referee {
+	display:none;
+}
+.ticker td.localtime {
+	display:none;
+}
+.ticker td {
+	padding:5px;
+	font-size:30px !important;
+}
+table.resulttable td.time {
+	font-size:80px;
+}
+table.resulttable td.result {
+	font-size:120pt;
+}
+table.resulttable .spectators {
+	font-size:28pt;
+}

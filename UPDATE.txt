@@ -1,0 +1,57 @@
+Updating from a previous version of the liveticker is really easy.
+
+Make a backup of everything. You never know what might happen.
+
+To update from version 1.1 to 1.2
+---------------------------------
+
+Run the sql/update_1.1_1.2.sql script on your database and it will create
+two new fields leaving the data unchanged.
+
+Copy the new php files over the existing ones in both the root and the admin
+folder. Take care not to overwrite your config.php file!
+
+Copy over or update your templates in fragments/ according:
+- to disable the automatic reload if the ticker is not enabled:
+  -> copy fragments/meta_refresh.html from the archive to your fragments/ folder
+  -> replace <meta http-equiv="refresh" content="30"> with @{meta_refresh} in all
+     body*.html files
+- to display the timestamp of the entry:
+  -> add the @{entry_time} placeholder in the info.html, goal.html and penalty.html
+     fragments at the desired location. 
+     
+To update from version 1.2.x to 1.3
+-----------------------------------
+
+ATTENTION: 
+----------
+  I haven't tested this script in PHP 4. I don't know if the OO design 
+  choices I made are compatible with it!
+  
+Run the sql/update_1.2_1.3.sql script on your database and it will create
+a couple of new fields in the liveticker_match table. The data will be unchanged
+
+- Copy the new php files over the existing ones.
+- Copy the match folder to your liveticker folder. It contains the Classes required
+  for the new liveticker to work.
+- Copy the templates folder to your liveticker folder (it will be used instead of 
+  the fragments folder)
+- In your tickerdata folders create two new folders 'templates_c' and 'cache' and 
+  make them world writable. (chmod a+w templatec_c; chmod a+w cache)
+- Create the required styles in your ./styles.css file. The new styles are:
+  .referee, .referee h3, .referee h4, .referee head, .referee linesman, div.spectators
+  The other styles are named the same way and should apply without problems to the
+  elements specified in the smarty templates
+- Update the FRAGMENTDIR setting in your config.php to point to the templates folder
+  instead of the fragments folder.
+
+
+To update from version 1.3 to version 1.4
+-----------------------------------------
+- make a backup of your config.php. 
+- Copy the new php files over the existing ones.
+- if your clock is running backwards starting this season add the following to
+  your config.php:
+  define( 'CLOCK_RUNNING_DIRECTION', 'desc' );
+- You may delete the index_old.php file and fragments folder.
+- Copy the templates/admin folder to your installation's template folder
