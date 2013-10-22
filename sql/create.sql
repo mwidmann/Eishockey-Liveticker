@@ -21,7 +21,7 @@ CREATE TABLE liveticker_entry (
   info text,
   entry_time datetime NOT NULL DEFAULT '1970-01-01 00:00:00',
   PRIMARY KEY  (entry_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 --
 -- Table structure for table `liveticker_match`
@@ -42,4 +42,4 @@ CREATE TABLE liveticker_match (
   linesman2 varchar(50),
   spectators smallint unsigned, 
   PRIMARY KEY  (match_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
