@@ -22,10 +22,14 @@ if ( isset( $_REQUEST[ "msg" ] ) )
 	$sql = "select * from liveticker_match order by matchdate desc";
 	$conn->query( $sql );
 
+	$matches = $conn->resultRows;
+	if ($matches === null) {
+		$matches = [];
+	}
 	$templateEngine = new LivetickerSmarty();
 	$templateEngine->assign( 'title', 'Matches verwalten' );
 	$templateEngine->assign( 'msg', $msg );
-	$templateEngine->assign( 'matches', $conn->resultRows );
+	$templateEngine->assign( 'matches', $matches );
 	$templateEngine->assign('_smarty_debug_output', 'html');
 	$conn->finalize();
 	echo $templateEngine->fetch( FRAGMENTDIR . 'admin/match_list.tpl');

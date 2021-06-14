@@ -1,4 +1,4 @@
-{include file="./admin/admin_header.tpl"}
+{include file="./admin_header.tpl"}
 <form name="form1" action="match_edit.php" method="post">
 	<input type="hidden" name="todoaction" value="store">
 	<input type="hidden" name="id" value="{$id}">

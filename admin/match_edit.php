@@ -48,16 +48,20 @@ if ( 'store' == $action ) {
 	if ( isset( $_POST[ "running" ] ) )
 		$running = 1;
 	$overtime_length = $_POST[ "overtime_length" ];
-	$spectators = $_POST[ "spectators" ];
+	$spectators = 0;
+	if ( isset( $_POST[ "spectators" ] ) ) {
+		$spectators = intval( $_POST[ "spectators" ] );
+	}
 	$head1 = $_POST[ "head1" ];
 	$head2 = $_POST[ "head2" ];
 	$linesman1 = $_POST[ "linesman1" ];
 	$linesman2 = $_POST[ "linesman2" ];
 
-	if ( strtotime( $matchdate ) == -1 ) {
-		echo("<span class=\"error\">$matchdate ist kein gültiges Datum im " .
+	if ( !strtotime( $matchdate ) ) {
+		echo("<span class=\"error\">'$matchdate' ist kein gültiges Datum im " .
 		"Format 'YYYY-MM-DD HH:mm:ss' (bsp: 2006-10-07 19:30:00)</span>");
 	} else {
+		$conn->initialize();
 		// if $id is not set, insert a new record in the database;
 		if ( !$id ) {
 			$sql = "INSERT INTO liveticker_match (home, home_name, away, " .
@@ -104,7 +108,7 @@ if ( 'store' == $action ) {
 		// calling for an update of the ticker
 		touch( OUTPUTDIR . "/update_$id" );
 
-		header( "Location: index.php?msg=Eintrag mit id $id gespeichert." );
+		// header( "Location: index.php?msg=Eintrag mit id $id gespeichert." );
 	}
 } else {
 
@@ -158,6 +162,5 @@ $templateEngine->assign( 'linesman1', $linesman1 );
 $templateEngine->assign( 'linesman2', $linesman2 );
 
 $templateEngine->assign( '_smarty_debug_output', 'html' );
-$conn->finalize();
 echo $templateEngine->fetch( FRAGMENTDIR . 'admin/match_edit.tpl' );
 ?>

@@ -1,7 +1,7 @@
-{include file="./admin/admin_header.tpl"}
+{include file="./admin_header.tpl"}
 		<div class="msg">{$msg}</div>
 		{if $matches|@count == 0}
-			Keine Spiele vorhanden - 
+			Keine Spiele vorhanden -
 		{else}
 			{$matches|@count}  Matches gefunden -
 		{/if}

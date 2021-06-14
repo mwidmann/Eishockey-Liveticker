@@ -1,6 +1,6 @@
 <?php
 /**
-* 
+*
 */
 
 require ('smarty/Smarty.class.php');
@@ -10,7 +10,9 @@ require ('smarty/Smarty.class.php');
 */
 class LivetickerSmarty extends Smarty {
 
-	function LivetickerSmarty() {
+	function __construct() {
+		parent::__construct();
+
 		$this->template_dir = FRAGMENTDIR;
 		$this->compile_dir = OUTPUTDIR . 'templates_c';
 		$this->config_dir = '';
