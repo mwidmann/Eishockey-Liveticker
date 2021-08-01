@@ -108,7 +108,7 @@ if ( 'store' == $action ) {
 		// calling for an update of the ticker
 		touch( OUTPUTDIR . "/update_$id" );
 
-		// header( "Location: index.php?msg=Eintrag mit id $id gespeichert." );
+		header( "Location: index.php?msg=Eintrag mit id $id gespeichert." );
 	}
 } else {
 

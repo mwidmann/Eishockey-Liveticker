@@ -24,7 +24,7 @@ class Entry {
 
 	protected function setInfo($info) {
 		$this->info = preg_replace('@http://(([^\s0-9-\.][a-zA-Z0-9-\.]+)\S+)@','<a href="http://\\1" target="_blank">http://\\1</a>',$info);
-		$this->info = eregi_replace("\n", "<br>", $this->info);
+		$this->info = preg_replace('/\n/', '<br>', $this->info);
 	}
 
 	/**

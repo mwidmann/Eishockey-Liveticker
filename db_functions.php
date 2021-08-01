@@ -59,6 +59,7 @@ class DBLayer {
 	escapes a string to be formatted correctly
 	*/
 	function escape($string) {
+
 		return mysqli_real_escape_string($this->dbHandle, $string);
 	}
 
@@ -143,8 +144,6 @@ class DBLayer {
 		}
 
 		$this->resultSet = @mysqli_query($this->dbHandle, $sql);
-		var_dump( $this->resultSet );
-		var_dump( mysqli_error( $this->dbHandle ));
 
 		if ( preg_match("/^\\s*(insert|delete|update|replace) /i", $sql) ) {
 

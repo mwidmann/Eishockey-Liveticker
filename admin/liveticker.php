@@ -68,6 +68,8 @@ $players_home = loadContent( OUTPUTDIR . "/players_home_" . $id );
 $players_away = loadContent( OUTPUTDIR . "/players_away_" . $id );
 
 if ( 'store' == $action ) {
+	$conn->initialize();
+
 	$entry_type = $_POST[ "entry_type" ];
 	$team = $_POST[ "team" ];
 	$period = $_POST[ "period" ];
@@ -269,7 +271,7 @@ function calculatePlaytimeAndPeriod( $time, $conn, $id ) {
 	if ( NULL == $time )
 		return array( "00", "00", 1 );
 
-	list ( $min, $sec ) = split( ":", $time );
+	list ( $min, $sec ) = explode( ':', $time );
 
 	$period = 1;
 

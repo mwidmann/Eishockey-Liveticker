@@ -202,9 +202,9 @@ class MatchView {
 
 		if ( NULL == $playtime )
 			return 8;
-		
-		list ($min, $sec) = split(":", $playtime);
-		
+
+		list ($min, $sec) = explode(':', $playtime);
+
 		if ($min == 0 && $sec == 0) {
 			return 8;
 		} else if ($min < 20) {
